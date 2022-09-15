@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #947444;
+        }
+
+        h2 {
+            margin: auto;
+            width: fit-content;
+            color: gold;
+            font-size: 2rem;
+        }
+
+        #button {
+            display: flex;
+            justify-content: center;
+        }
+
+        #atc {
+            border: none;
+            color: gold;
+            background-color: white;
+            padding: 1rem;
+            margin: 2rem 0rem;
+            border-radius: 0.7rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        #but {
+            border: none;
+            color: gold;
+            background-color: white;
+            padding: 1rem;
+            margin: 2rem 0rem;
+            border-radius: 0.7rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        #cart {
+            width: 9rem;
+            margin: auto;
+        }
+
+        #carts {
+            width: 9rem;
+            height: 8rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+
+        #nuc {
+            position: absolute;
+            border: none;
+            outline: none;
+            background-color: red;
+            border-radius: 1rem;
+            width: 3rem;
+            height: 3rem;
+            margin-top: -8rem;
+            margin-left: 6rem;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.7rem;
+            cursor: pointer;
+        }
+
+        #modal {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        #inModal {
+            position: absolute;
+            background-color: gold;
+            border-radius: 1rem;
+            width: 40rem;
+            height: fit-content;
+            left: 50%;
+            top: 35%;
+            transform: translate(-50%, -50%);
+            margin: auto;
+            z-index: 1;
+        }
+
+        #time {
+            height: fit-content;
+            padding-right: 0.8rem;
+            padding-top: 0.8rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        #times {
+            background-color: none;
+            margin: 0;
+            font-size: 1.7rem;
+            height: fit-content;
+            width: fit-content;
+            border: none;
+            outline: none;
+            border-radius: 0.5rem;
+            padding: 0.2rem 0.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        #times:hover {
+            background-color: rgba(255, 254, 254, 0.43);
+            color: red;
+        }
+
+        #time:focus-within #modal {
+            display: none;
+        }
+
+        #list {
+            font-size: 1.7rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #cat:focus-within #modal {
+            display: block;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .show {
+            border: 0.2rem solid black;
+            height: fit-content;
+            margin: 0.7rem;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 1rem;
+        }
+
+        #name {
+            border: 0.2px solid black;
+            width: 75%;
+        }
+
+        #owo {
+            border: 0.2px solid black;
+            width: 20%;
+            font-size: 2rem;
+            font-weight: bolder;
+        }
+
+        #show {
+            background-color: gold;
+            box-shadow: 1px 1px 63px 16px rgba(0, 0, 0, 0.43);
+            border-radius: 1rem;
+            height: fit-content;
+            padding: 1.5rem;
+            margin: 1.8rem;
+            display: flex;
+            justify-content: space-between;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .sow {
+            border: 0.2rem solid black;
+            height: fit-content;
+            display: flex;
+            justify-content: space-evenly;
+            padding: 1rem;
+        }
+
+        #per {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 1rem;
+            color: white;
+            font-size: 20px;
+            background-color: #947444;
+            width: 19rem;
+        }
+
+        #men {
+            font-size: 2.4rem;
+            font-weight: bolder;
+        }
+
+        #img {
+            width: 100%;
+            height: 17rem;
+        }
+
+        #des {
+            color: white;
+            font-size: 20px;
+            margin-top: 0.7rem;
+        }
+
+        #price {
+            color: white;
+            font-size: 20px;
+            margin-top: 0.7rem;
+        }
+
+        #flex {
+            display: flex;
+            margin-top: 0.7rem;
+        }
+
+        #rating {
+            color: white;
+            font-size: 20px;
+        }
+
+        #title {
+            color: white;
+            font-size: 20px;
+            margin-top: 0.7rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>FAKE API STORE</h2>
+
+    <div id="button">
+        <button onclick="show()" id="but">Available items</button>
+    </div>
+    <div id="cart">
+        <img src="shopping_cart.png" alt="CART" id="carts">
+        <a href="C:\Users\OLUSESAN\Desktop\welcome to JS\classwork\cart_page.html"><button id="nuc"></button></a>
+        <div id="modal">
+            <div id="inModal">
+                <div id="time">
+                    <div id="times">x</div>
+                </div>
+                <div id="list">
+                    ITEMS IN THE CART
+                </div>
+                <div class="show">
+                    <div id="name">
+
+                    </div>
+                    <div id="owo">
+
+                    </div>
+                </div>
+                <div class="sow">
+                    <div>
+                        TOTAL
+                    </div>
+                    <div id="answer">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="show">
+        <!-- <div id="per">
+            <div id="men"></div>
+
+            <div>
+                <img src="" alt="" id="img">
+            </div>
+            <div id="des"></div>
+            <div id="price"></div>
+            <div id="rating"></div>
+            <div id="rating"></div>
+            <div id="title"></div>
+        <iv> -->
+    </div>
+</body>
+<script>
+    let answer = document.getElementById("answer")
+    let nam = document.getElementById("name")
+    let owo = document.getElementById("owo")
+    let modal = document.getElementById("modal")
+    let price = document.getElementById("price")
+    let des = document.getElementById("des")
+    let per = document.getElementById("per")
+    let cart = document.getElementById("nuc")
+    cart.innerHTML = 0
+    let namePush = []
+    let priceArr = []
+    let display = document.getElementById("show")
+    let total;
+    let products;
+    function show() {
+        fetch("https://fakestoreapi.com/products")
+            .then(res => res.json())
+            .then(data => {
+                products = data
+                console.log(products);
+                for (let index = 0; index < data.length; index++) {
+                    display.innerHTML +=
+                        `<div id="per">
+            <div id="men"> ${data[index].category} </div>
+            <div>
+                <img src="${data[index].image}" alt="" id="img">
+            </div>
+            <div id="des">${data[index].description}</div>
+            <div id="price">$${data[index].price}</div>
+            <div id="flex">
+               Rating:&#11088;&#11088;&#11088;&#11088;
+            <div id="rating">${data[index].rating.rate}</div>   
+            </div>
+            <div id="title">${data[index].title}</div>
+            <button id="atc" onclick="add(${index})">ADD TO CART</button>
+        </div>`
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+    function add(params) {
+        namePush.push(products[params]);
+        nam.innerHTML = ""
+        owo.innerHTML = ""
+        priceArr = []
+        titleArr = []
+        console.log(namePush);
+        for (let i = 0; i < namePush.length; i++) {
+            nam.innerHTML += `
+                <div>${namePush[i].title}</div>
+            `
+            owo.innerHTML += ` 
+            <div>$${namePush[i].price}</div>
+            `
+            priceArr.push(namePush[i].price)
+            localStorage.setItem("ajo", JSON.stringify(priceArr))
+
+            titleArr.push(namePush[i].title)
+            localStorage.setItem("eyi", JSON.stringify(titleArr))
+            
+            console.log(namePush.length);
+            cart.innerHTML = namePush.length
+
+            console.log(priceArr);
+            total = priceArr.reduce(function (a, b) {
+                return a + b;
+            }, 0);
+            console.log(total);
+            
+            localStorage.setItem("tota",JSON.stringify(total))
+            answer.innerHTML = `$${total}`
+            console.log(total);
+            
+        }
+        // pricePush.push(products[params].price)
+        // console.log(pricePush);
+        // console.log(namePush);
+        // cart.innerHTML = namePush.length
+        // name.innerHTML += `<div>${namePush}</div>`
+        // console.log(name.innerHTML);
+
+        // localStorage.setItem("cartArr", JSON.stringify(cartPush))
+        // JSON.parse(localStorage.getItem("cartArr"))
+    }
+    // function dis() {
+    //     let modal = document.getElementById("modal")
+    //     console.log(modal);
+    //     console.log(modal.innerText);
+    //     modal.innerText.style.display = "block"
+    //     console.log("hhjfdshjdszhjz");
+    // }
+
+</script>
+
+</html>
